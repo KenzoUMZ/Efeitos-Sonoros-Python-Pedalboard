@@ -1,5 +1,3 @@
-import pyaudio
-import wave
+from playsound import playsound
 
-filename = ''
-
+playsound('file_example_WAV_2MG.wav')
