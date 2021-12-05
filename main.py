@@ -1,3 +1,8 @@
-from playsound import playsound
+import tkinter
+from interface import MainScreen
 
-playsound('file_example_WAV_2MG.wav')
+root = tkinter.Tk()
+MainScreen(root)
+root.title('Projeto Pedalboard')
+root.configure(bg='#29364E')
+root.mainloop()
