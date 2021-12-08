@@ -1,8 +1,8 @@
-import tkinter
+from tkinter import *
 from interface import MainScreen
 
-root = tkinter.Tk()
+root = Tk()
 MainScreen(root)
-root.title('Projeto Pedalboard')
-root.configure(bg='#29364E')
+root.title('Pedalboard Controller')
+root.configure(bg='#062844')
 root.mainloop()
