@@ -26,7 +26,7 @@ class Effects:
 
         self.fs = 44100  # frequency
         self.time = time  # time in seconds
-        print(self.time)
+
 
         audio, sample_rate = sf.read('output.wav')
         # Make a Pedalboard object, containing multiple plugins:
@@ -50,10 +50,10 @@ class Effects:
 
         if phaser is not None:
             board.append(Phaser(rate_hz=self.phaser['rate_hz'],
-                                depth=self.chorus['depth'],
-                                centre_frequency_hz=self.chorus['centre_frequency_hz'],
-                                feedback=self.chorus['feedback'],
-                                mix=self.chorus['mix']))
+                                depth=self.phaser['depth'],
+                                centre_frequency_hz=self.phaser['centre_frequency_hz'],
+                                feedback=self.phaser['feedback'],
+                                mix=self.phaser['mix']))
         # Run the audio through this pedalboard!
         effected = board(audio)
 
@@ -62,11 +62,11 @@ class Effects:
                           channels=len(effected.shape)) as f:
             f.write(effected)
 
-        print('terminou')
+
 
     @staticmethod
     def Play():
-        print('tocando')
+
         filename = 'processed-output-stereo.wav'
         # Extract data and sampling rate from file
         data, fs = sf.read(filename, dtype='float32')

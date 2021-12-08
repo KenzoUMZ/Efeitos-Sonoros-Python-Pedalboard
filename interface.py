@@ -443,10 +443,14 @@ class MainScreen:
         self.button_play.pack(side=BOTTOM)
 
         # Campo de texto da especificação
-        self.text_field_time = Entry(self.container9)
-        self.text_field_time['width'] = 30
-        self.text_field_time['font'] = self.fonte_text_field
-        self.text_field_time.pack(side=BOTTOM)
+        # Slider do
+        self.slider_time = Scale(self.container9,
+                                 from_=0, to=60,
+                                 orient=HORIZONTAL,
+                                 width=self.slider_width,
+                                 length=self.slider_length)
+        self.slider_time.configure(bg=self.dark_blue, fg=self.white)
+        self.slider_time.pack(side=BOTTOM)
 
         # Label do ganho DB
         self.label_gain_db = Label(self.container9,
@@ -465,7 +469,7 @@ class MainScreen:
         gain = self.slider_gain.get()
         lim_thresh = self.slider_limiter_thresh.get()
         lim_release = self.slider_limiter_release.get()
-        time = int(self.text_field_time.get())
+        time = self.slider_time.get()
 
         chorus = {'rate_hz': self.slider_chorus_rate.get(),
                   'depth': self.slider_chorus_depth.get(),
@@ -473,7 +477,7 @@ class MainScreen:
                   'feedback': self.slider_chorus_feedback.get(),
                   'mix': self.slider_chorus_mix.get()}
 
-        phaser = {'rate': self.slider_phaser_rate.get(),
+        phaser = {'rate_hz': self.slider_phaser_rate.get(),
                   'depth': self.slider_phaser_depth.get(),
                   'centre_frequency_hz': self.slider_phaser_frequency.get(),
                   'feedback': self.slider_phaser_feedback.get(),
