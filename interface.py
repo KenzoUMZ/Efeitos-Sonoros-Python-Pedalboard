@@ -65,16 +65,16 @@ class MainScreen:
         self.container7.pack()
 
         self.container8 = Frame(master)
-        self.container8['padx'] = 58
+        self.container8['padx'] = 45
         self.container8['pady'] = 5
         self.container8.configure(bg=self.dark_blue)
-        self.container8.place(x=1100, y=80)
+        self.container8.pack()
 
         self.container9 = Frame(master)
-        self.container9['padx'] = 58
+        self.container9['padx'] = 45
         self.container9['pady'] = 5
         self.container9.configure(bg=self.dark_blue)
-        self.container9.place(x=1155, y=200)
+        self.container9.pack()
 
         # Container1
 
@@ -97,7 +97,7 @@ class MainScreen:
 
         # Slider da compression threshold
         self.slider_compression_threshold = Scale(self.container2,
-                                                  from_=0, to=100,
+                                                  from_=-50, to=50,
                                                   orient=HORIZONTAL,
                                                   length=self.slider_length,
                                                   width=self.slider_width)
@@ -225,191 +225,47 @@ class MainScreen:
         self.label_chorus = Label(self.container6,
                                   text='Chorus',
                                   font=self.fonte_top_labels,
-                                  width=8,
+                                  width=18,
                                   pady=10,
                                   padx=0)
         self.label_chorus.configure(bg=self.dark_blue, fg=self.white)
-        self.label_chorus.pack(side=TOP)
+        self.label_chorus.pack(side=LEFT)
 
-        # Label da chorus rate
-        self.label_chorus_rate = Label(self.container6,
-                                       text='Rate(hz):',
-                                       font=self.fonte_labels,
-                                       width=13)
-        self.label_chorus_rate.configure(bg=self.dark_blue, fg=self.white)
-        self.label_chorus_rate.pack(side=LEFT)
-
-        # Slider do chorus rate
-        self.slider_chorus_rate = Scale(self.container6,
-                                        from_=100, to=0,
-                                        orient=VERTICAL,
-                                        width=self.slider_width,
-                                        length=self.slider_length)
-        self.slider_chorus_rate.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_chorus_rate.pack(side=LEFT)
-
-        # Label da chorus depth
-        self.label_depth_ = Label(self.container6,
-                                  text='Depth(ms):',
-                                  font=self.fonte_labels,
-                                  width=13, )
-        self.label_depth_.configure(bg=self.dark_blue, fg=self.white)
-        self.label_depth_.pack(side=LEFT)
-
-        # Slider do
-        self.slider_chorus_depth = Scale(self.container6,
-                                         from_=100, to=0,
-                                         orient=VERTICAL,
-                                         width=self.slider_width,
-                                         length=self.slider_length)
-        self.slider_chorus_depth.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_chorus_depth.pack(side=LEFT)
-
-        # Label da centre delay
-        self.label_chorus_delay = Label(self.container6,
-                                        text='Centre Delay(ms):',
-                                        font=self.fonte_labels,
-                                        width=15)
-        self.label_chorus_delay.configure(bg=self.dark_blue, fg=self.white)
-        self.label_chorus_delay.pack(side=LEFT)
-
-        # Slider do
-        self.slider_chorus_delay = Scale(self.container6,
-                                         from_=100, to=0,
-                                         orient=VERTICAL,
-                                         width=self.slider_width,
-                                         length=self.slider_length)
-        self.slider_chorus_delay.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_chorus_delay.pack(side=LEFT)
-
-        # Label do chorus feedback
-        self.label_chorus_feedback = Label(self.container6,
-                                           text='Feedback:',
-                                           font=self.fonte_labels,
-                                           width=13)
-        self.label_chorus_feedback.configure(bg=self.dark_blue, fg=self.white)
-        self.label_chorus_feedback.pack(side=LEFT)
-
-        # Slider do
-        self.slider_chorus_feedback = Scale(self.container6,
-                                            from_=100, to=0,
-                                            orient=VERTICAL,
-                                            width=self.slider_width,
-                                            length=self.slider_length)
-        self.slider_chorus_feedback.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_chorus_feedback.pack(side=LEFT)
-
-        # Label da
-        self.label_chorus_mix = Label(self.container6,
-                                      text='Mix:',
-                                      font=self.fonte_labels,
-                                      width=13, )
-        self.label_chorus_mix.configure(bg=self.dark_blue, fg=self.white)
-        self.label_chorus_mix.pack(side=LEFT)
-
-        # Slider do
-        self.slider_chorus_mix = Scale(self.container6,
-                                       from_=100, to=0,
-                                       orient=VERTICAL,
-                                       width=self.slider_width,
-                                       length=self.slider_length)
-        self.slider_chorus_mix.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_chorus_mix.pack(side=LEFT)
-
-        # Label Phaser
-        self.label_Phaser = Label(self.container7,
+        # Label Chorus
+        self.label_phaser = Label(self.container6,
                                   text='Phaser',
                                   font=self.fonte_top_labels,
-                                  width=8,
+                                  width=18,
                                   pady=10,
                                   padx=0)
-        self.label_Phaser.configure(bg=self.dark_blue, fg=self.white)
-        self.label_Phaser.pack(side=TOP)
+        self.label_phaser.configure(bg=self.dark_blue, fg=self.white)
+        self.label_phaser.pack(side=RIGHT)
 
-        # Label da Phaser rate
-        self.label_phaser_rate = Label(self.container7,
-                                       text='Rate(hz):',
-                                       font=self.fonte_labels,
-                                       width=13)
-        self.label_phaser_rate.configure(bg=self.dark_blue, fg=self.white)
-        self.label_phaser_rate.pack(side=LEFT)
+        # Combobox chorus
+        self.combobox_chorus = Combobox(self.container7, width=5,
+                                        values=['Off', 'On'],
+                                        state='readonly',
+                                        font=self.fonte_text_field)
+        self.combobox_chorus.current(0)
+        self.combobox_chorus.pack(side=LEFT)
 
-        # Slider do phaser rate
-        self.slider_phaser_rate = Scale(self.container7,
-                                        from_=100, to=0,
-                                        orient=VERTICAL,
-                                        width=self.slider_width,
-                                        length=self.slider_length)
-        self.slider_phaser_rate.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_phaser_rate.pack(side=LEFT)
+        # Label space
+        self.label_space = Label(self.container7,
+                                 text=' ',
+                                 font=self.fonte_top_labels,
+                                 width=15,
+                                 pady=10,
+                                 padx=0)
+        self.label_space.configure(bg=self.dark_blue, fg=self.white)
+        self.label_space.pack(side=LEFT)
 
-        # Label da phaser depth
-        self.label_depth_ = Label(self.container7,
-                                  text='Depth(ms):',
-                                  font=self.fonte_labels,
-                                  width=13, )
-        self.label_depth_.configure(bg=self.dark_blue, fg=self.white)
-        self.label_depth_.pack(side=LEFT)
-
-        # Slider do
-        self.slider_phaser_depth = Scale(self.container7,
-                                         from_=100, to=0,
-                                         orient=VERTICAL,
-                                         width=self.slider_width,
-                                         length=self.slider_length)
-        self.slider_phaser_depth.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_phaser_depth.pack(side=LEFT)
-
-        # Label da centre delay
-        self.label_phaser_delay = Label(self.container7,
-                                        text='Centre Frequency(hz):',
-                                        font=self.fonte_labels,
-                                        width=18)
-        self.label_phaser_delay.configure(bg=self.dark_blue, fg=self.white)
-        self.label_phaser_delay.pack(side=LEFT)
-
-        # Slider do
-        self.slider_phaser_frequency = Scale(self.container7,
-                                             from_=100, to=0,
-                                             orient=VERTICAL,
-                                             width=self.slider_width,
-                                             length=self.slider_length)
-        self.slider_phaser_frequency.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_phaser_frequency.pack(side=LEFT)
-
-        # Label do phaser feedback
-        self.label_phaser_feedback = Label(self.container7,
-                                           text='Feedback:',
-                                           font=self.fonte_labels,
-                                           width=13)
-        self.label_phaser_feedback.configure(bg=self.dark_blue, fg=self.white)
-        self.label_phaser_feedback.pack(side=LEFT)
-
-        # Slider do
-        self.slider_phaser_feedback = Scale(self.container7,
-                                            from_=100, to=0,
-                                            orient=VERTICAL,
-                                            width=self.slider_width,
-                                            length=self.slider_length)
-        self.slider_phaser_feedback.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_phaser_feedback.pack(side=LEFT)
-
-        # Label da
-        self.label_phaser_mix = Label(self.container7,
-                                      text='Mix:',
-                                      font=self.fonte_labels,
-                                      width=13, )
-        self.label_phaser_mix.configure(bg=self.dark_blue, fg=self.white)
-        self.label_phaser_mix.pack(side=LEFT)
-
-        # Slider do
-        self.slider_phaser_mix = Scale(self.container7,
-                                       from_=100, to=0,
-                                       orient=VERTICAL,
-                                       width=self.slider_width,
-                                       length=self.slider_length)
-        self.slider_phaser_mix.configure(bg=self.dark_blue, fg=self.white)
-        self.slider_phaser_mix.pack(side=LEFT)
+        # Combobox phaser
+        self.combobox_phaser = Combobox(self.container7, width=5,
+                                        values=['Off', 'On'],
+                                        state='readonly',
+                                        font=self.fonte_text_field)
+        self.combobox_phaser.current(0)
+        self.combobox_phaser.pack(side=RIGHT)
 
         # Label do ganho DB
         self.label_gain_db = Label(self.container8,
@@ -428,19 +284,22 @@ class MainScreen:
         self.button_apply.configure(bg='#093657', fg=self.white)
         self.button_apply.pack(side=LEFT)
 
-        # Button Record
-        self.button_record = Button(self.container8, text='Record',
-                                    font=self.fonte_text_field, width=12,
-                                    command=ef.Effects().Record())
-        self.button_record.configure(bg='#093657', fg=self.white)
-        self.button_record.pack(side=LEFT)
-
         # Button Play
         self.button_play = Button(self.container8, text='Play',
                                   font=self.fonte_text_field, width=12,
                                   command=ef.Effects.Play)
         self.button_play.configure(bg='#093657', fg=self.white)
-        self.button_play.pack(side=BOTTOM)
+        self.button_play.pack(side=RIGHT)
+
+        # Label do ganho DB
+        self.label_gain_db = Label(self.container9,
+                                   text='Time',
+                                   font=self.fonte_top_labels,
+                                   width=8,
+                                   pady=10,
+                                   padx=0)
+        self.label_gain_db.configure(bg=self.dark_blue, fg=self.white)
+        self.label_gain_db.pack(side=TOP)
 
         # Campo de texto da especificação
         # Slider do
@@ -452,16 +311,6 @@ class MainScreen:
         self.slider_time.configure(bg=self.dark_blue, fg=self.white)
         self.slider_time.pack(side=BOTTOM)
 
-        # Label do ganho DB
-        self.label_gain_db = Label(self.container9,
-                                   text='Time',
-                                   font=self.fonte_top_labels,
-                                   width=8,
-                                   pady=10,
-                                   padx=0)
-        self.label_gain_db.configure(bg=self.dark_blue, fg=self.white)
-        self.label_gain_db.pack(side=BOTTOM)
-
     def apply_changes(self):
         comp_thresh = self.slider_compression_threshold.get()
         comp_ratio = self.slider_compression_ratio.get()
@@ -470,18 +319,8 @@ class MainScreen:
         lim_thresh = self.slider_limiter_thresh.get()
         lim_release = self.slider_limiter_release.get()
         time = self.slider_time.get()
-
-        chorus = {'rate_hz': self.slider_chorus_rate.get(),
-                  'depth': self.slider_chorus_depth.get(),
-                  'centre_delay_ms': self.slider_chorus_delay.get(),
-                  'feedback': self.slider_chorus_feedback.get(),
-                  'mix': self.slider_chorus_mix.get()}
-
-        phaser = {'rate_hz': self.slider_phaser_rate.get(),
-                  'depth': self.slider_phaser_depth.get(),
-                  'centre_frequency_hz': self.slider_phaser_frequency.get(),
-                  'feedback': self.slider_phaser_feedback.get(),
-                  'mix': self.slider_phaser_mix.get()}
+        chorus = self.combobox_chorus.get()
+        phaser = self.combobox_phaser.get()
 
         ef.Effects(comp_thresh, comp_ratio, rev_room, gain, lim_thresh,
                    lim_release, chorus, phaser, time)
